@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Cautivo - Red Jiménez</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="animated-bg"></div>
+    <div class="particles" id="particles"></div>
+
+    <!-- Sección superior -->
+    <header class="hero">
+        <h1>RED JIMÉNEZ</h1>
+        <p>Internet de Alta Velocidad</p>
+        
+        <div class="main-buttons">
+            <button class="main-btn" onclick="iniciarEscaneo()">
+                📷 Escanear QR
+            </button>
+            <button class="main-btn" onclick="abrirModalCodigo()">
+                🔑 Código
+            </button>
+        </div>
+    </header>
+
+    <!-- Sección de planes -->
+    <section class="plans-section">
+        <h2 class="plans-title">PLANES</h2>
+        <div class="plans-grid">
+            <div class="plan-card">
+                <div class="plan-duration">1 HORA</div>
+                <div class="plan-subtitle">TIEMPO GUARDABLE</div>
+                <div class="plan-price">$10</div>
+            </div>
+            
+            <div class="plan-card">
+                <div class="plan-duration">5 HORAS</div>
+                <div class="plan-subtitle">TIEMPO GUARDABLE</div>
+                <div class="plan-price">$40</div>
+            </div>
+            
+            <div class="plan-card">
+                <div class="plan-duration">1 MES</div>
+                <div class="plan-subtitle"></div>
+                <div class="plan-price">$250</div>
+            </div>
+            
+            <div class="plan-card">
+                <div class="plan-duration">1 SEMANA</div>
+                <div class="plan-subtitle"></div>
+                <div class="plan-price">$100</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal para código -->
+    <div id="modalCodigo" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="cerrarModalCodigo()">&times;</span>
+            <h2>Ingresa tu código</h2>
+            <form id="loginForm">
+                <input type="text" id="codigo" placeholder="Código de acceso" required>
+                <button type="submit">Conectarse</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- QR Scanner -->
+    <div id="visorQR" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="detenerEscaneo()">&times;</span>
+            <h2>Escanea tu código QR</h2>
+            <div id="reader" style="width: 100%;"></div>
+            <button onclick="detenerEscaneo()" style="margin-top: 20px;">Cancelar</button>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/html5-qrcode"></script>
+    <script src="script.js"></script>
+</body>
+</html>
