@@ -1,0 +1,310 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #0a1a2e 0%, #16213e 50%, #0f1419 100%);
+    color: #00f7ff;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Fondo animado con partículas */
+.animated-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: radial-gradient(circle at 20% 50%, rgba(0, 247, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0, 247, 255, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(0, 247, 255, 0.06) 0%, transparent 50%);
+}
+
+.particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.particle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: #00f7ff;
+    border-radius: 50%;
+    animation: float 6s infinite ease-in-out;
+    box-shadow: 0 0 6px #00f7ff;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) translateX(0px); opacity: 0.3; }
+    50% { transform: translateY(-20px) translateX(10px); opacity: 1; }
+}
+
+/* Header superior */
+.hero {
+    text-align: center;
+    padding: 60px 20px 40px;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600"><defs><radialGradient id="globe" cx="50%" cy="50%"><stop offset="0%" stop-color="%2300f7ff" stop-opacity="0.3"/><stop offset="100%" stop-color="%2300f7ff" stop-opacity="0.1"/></radialGradient></defs><circle cx="500" cy="300" r="200" fill="url(%23globe)"/><g stroke="%2300f7ff" stroke-width="1" fill="none" opacity="0.4"><circle cx="500" cy="300" r="150"/><circle cx="500" cy="300" r="200"/><ellipse cx="500" cy="300" rx="200" ry="100"/><ellipse cx="500" cy="300" rx="100" ry="200"/><path d="M300 300 Q500 200 700 300 Q500 400 300 300"/><path d="M300 300 Q500 400 700 300 Q500 200 300 300"/></g></svg>') center center/contain no-repeat;
+    opacity: 0.6;
+    z-index: -1;
+}
+
+.hero h1 {
+    font-size: 4em;
+    font-weight: bold;
+    text-shadow: 0 0 20px #00f7ff, 0 0 40px #00f7ff;
+    margin-bottom: 10px;
+    letter-spacing: 3px;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 20px #00f7ff, 0 0 30px #00f7ff, 0 0 40px #00f7ff; }
+    to { text-shadow: 0 0 30px #00f7ff, 0 0 40px #00f7ff, 0 0 50px #00f7ff; }
+}
+
+.hero p {
+    font-size: 1.4em;
+    margin-bottom: 50px;
+    opacity: 0.9;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Botones principales */
+.main-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 80px;
+    flex-wrap: wrap;
+}
+
+.main-btn {
+    background: linear-gradient(45deg, rgba(0, 247, 255, 0.2), rgba(0, 247, 255, 0.4));
+    border: 2px solid #00f7ff;
+    color: #00f7ff;
+    padding: 15px 40px;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+    min-width: 180px;
+    box-shadow: 0 0 20px rgba(0, 247, 255, 0.3);
+}
+
+.main-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.main-btn:hover::before {
+    left: 100%;
+}
+
+.main-btn:hover {
+    background: linear-gradient(45deg, rgba(0, 247, 255, 0.4), rgba(0, 247, 255, 0.6));
+    box-shadow: 0 0 30px rgba(0, 247, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+/* Sección de planes */
+.plans-section {
+    padding: 60px 20px;
+    text-align: center;
+    position: relative;
+}
+
+.plans-title {
+    font-size: 3.5em;
+    font-weight: bold;
+    margin-bottom: 50px;
+    text-shadow: 0 0 20px #00f7ff;
+    color: #00f7ff;
+}
+
+.plans-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.plan-card {
+    background: linear-gradient(135deg, rgba(0, 247, 255, 0.1), rgba(0, 247, 255, 0.05));
+    border: 2px solid rgba(0, 247, 255, 0.3);
+    border-radius: 20px;
+    padding: 30px;
+    position: relative;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.plan-card:hover {
+    border-color: #00f7ff;
+    box-shadow: 0 10px 30px rgba(0, 247, 255, 0.3);
+    transform: translateY(-5px);
+}
+
+.plan-duration {
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #ffffff;
+}
+
+.plan-subtitle {
+    font-size: 0.9em;
+    margin-bottom: 15px;
+    opacity: 0.8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.plan-price {
+    font-size: 3.5em;
+    font-weight: bold;
+    color: #00f7ff;
+    text-shadow: 0 0 15px #00f7ff;
+    margin-bottom: 20px;
+}
+
+/* Modal para código */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #0a1a2e, #16213e);
+    margin: 10% auto;
+    padding: 40px;
+    border: 2px solid #00f7ff;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 0 50px rgba(0, 247, 255, 0.3);
+}
+
+.close {
+    color: #00f7ff;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: -20px;
+}
+
+.close:hover {
+    color: #ffffff;
+}
+
+.modal h2 {
+    margin-bottom: 30px;
+    color: #00f7ff;
+    text-shadow: 0 0 10px #00f7ff;
+}
+
+.modal input {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1em;
+    border: 2px solid rgba(0, 247, 255, 0.3);
+    border-radius: 10px;
+    background: rgba(0, 247, 255, 0.1);
+    color: #ffffff;
+    margin-bottom: 20px;
+    outline: none;
+}
+
+.modal input:focus {
+    border-color: #00f7ff;
+    box-shadow: 0 0 10px rgba(0, 247, 255, 0.3);
+}
+
+.modal button {
+    background: linear-gradient(45deg, #00f7ff, #00d4e7);
+    color: #001f3f;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+}
+
+.modal button:hover {
+    background: linear-gradient(45deg, #00d4e7, #00f7ff);
+    box-shadow: 0 5px 15px rgba(0, 247, 255, 0.4);
+}
+
+/* QR Scanner */
+#visorQR {
+    margin-top: 20px;
+}
+
+#reader {
+    border-radius: 10px;
+    border: 2px solid #00f7ff;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5em;
+    }
+    
+    .main-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .plans-title {
+        font-size: 2.5em;
+    }
+    
+    .plan-price {
+        font-size: 2.8em;
+    }
+}
